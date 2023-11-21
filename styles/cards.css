@@ -1,0 +1,20 @@
+@import url(reset.css);
+
+body, button, input, select, textarea {
+    font-family: "Press Start 2P";
+    color: #ac3636;
+    border: none;
+    background: none;
+    text-shadow: 1px 1px 1px #000;
+    color: rgb(230, 230, 230);
+    animation: animatedBackground 10s linear infinite;
+}
+
+body {
+    background: url("../images/wallpaper-animes.jpg");
+    background-position: center;
+    background-position-y: cover;
+    background-repeat: repeat-x;
+    overflow-x: scroll;
+
+}
