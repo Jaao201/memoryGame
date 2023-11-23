@@ -65,6 +65,7 @@ body {
 	padding: 1.6rem;
 	word-wrap: 100%;
 	width: 100%;
+	height: 5.6rem;
 	transition: filter 0.25s;
 }
 .inputName:hover {
@@ -79,6 +80,7 @@ body {
 	border-radius: 8px;
 	padding: 1.6rem;
 	width: 100%;
+	height: 5.6rem;
 	text-shadow: 1px 1px 2px #0008;
 	margin-top: 1.6rem;
 	transition: filter 0.5s;
