@@ -1,21 +1,25 @@
 ::root {
-    font-size: 62.5%;
-    scroll-behavior: smooth;
+	font-size: 62.5%;
+	scroll-behavior: smooth;
 }
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 body {
-    font-size: 1.6rem;
+	font-size: 1.6rem;
 }
 
 .container {
-    height: 100vh;
-    background-color: rgba(0, 0, 0, .8);
-    padding: 0 3.2rem;
-
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.8);
+	padding: 0 3.2rem;
 }
-ul {list-style: none;}
-a {text-decoration: none; color: black;}
+ul {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+	color: black;
+}
