@@ -1,4 +1,60 @@
-const playerName = document.querySelector(".playerName");
-const storagePlayerName = localStorage.getItem("@memoryGame:playerName")
+//Functions.
+function backPage(){
+    const playerResp = confirm("DESEJA SAIR DO JOGO? O progresso será predido")
+    if(playerResp) {window.history.back()}
+}
 
-playerName.innerHTML = "Olá "+storagePlayerName;
+function createCards() {
+    gridCards.innerHTML = "";
+    sortedCards.forEach((card)=>{
+        gridCards.innerHTML +=
+        `
+        <div class="card" name="${card}">
+            <div class="front">
+                <img src="../images/${card}.jpg" alt="">
+            </div>
+            <div class="back">
+                <img src="/images/yugioh-card-back.png" alt="">
+            </div>
+        </div>
+        `
+    })
+}
+
+//Variables.
+const playerName = document.querySelector(".playerName");
+const backButton = document.querySelector(".backButton");
+const gridCards = document.querySelector(".gridCards");
+
+const storagePlayerName = localStorage.getItem("@memoryGame:playerName");
+playerName.innerHTML = storagePlayerName;
+
+backButton.addEventListener("click",backPage)
+
+const cardsName = [
+    "card_1",
+    "card_2",
+    "card_3",
+    "card_4",
+    "card_5",
+    "card_6",
+    "card_7",
+    "card_8",
+    "card_9",
+    "card_10",
+    "card_11",
+    "card_12",
+    "card_13",
+    "card_14",
+    "card_15",
+    "card_16",
+    "card_17",
+    "card_18",
+    "card_19",
+]
+const arrayCardsName = cardsName.sort(()=>Math.random()-0.5).filter((value, index) => index<12);
+
+const sortedCards = [...arrayCardsName, ...arrayCardsName].sort(()=>Math.random()-0.5);
+console.log(sortedCards);
+
+createCards();

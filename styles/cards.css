@@ -59,6 +59,7 @@ aside button {
 }
 .card:hover {
 	cursor: pointer;
+	transform: rotateY(180deg);
 }
 .card div {
 	width: 100%;
