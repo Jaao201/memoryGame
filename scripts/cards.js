@@ -1,7 +1,9 @@
 function backPage() {
-  const playerResp = confirm("Deseja sair do jogo? Você perderá seu progresso!");
-  if (playerResp) {
+  if (gameFinished) {
     window.history.back();
+  } else {
+    const playerResp = confirm("Deseja sair do jogo? Você perderá seu progresso!");
+    if (playerResp) {window.history.back()};
   }
 }
 
@@ -55,6 +57,7 @@ function checkGameWin() {
   const disabledCards = document.querySelectorAll(".disabledCard");
   if (disabledCards.length === 24) {
     clearInterval(finishTimerInterval);
+    gameFinished = true;
 
     const userData = {
       name: storagePlayerName,
@@ -72,6 +75,7 @@ function checkGameWin() {
     }
 
     alert(`Parabéns ${storagePlayerName}, você venceu com tempo de ${timer.innerHTML}!`);
+    backPage();
   }
 }
 
@@ -121,12 +125,12 @@ function setStartTimer() {
   finishTimerInterval = setInterval(() => {
     const dateNow = new Date();
     const dateDiff = new Date(dateNow - initialDateTimer);
-    const hours = String(dateDiff.getHours()).padStart("2", "0");
     const minutes = String(dateDiff.getMinutes()).padStart("2", "0");
     const seconds = String(dateDiff.getSeconds()).padStart("2", "0");
+    const milisecs = String(dateDiff.getMilliseconds()).padStart("3", "0");
 
-    timer.innerHTML = `${hours}:${minutes}:${seconds}`;
-  }, 1000);
+    timer.innerHTML = `${minutes}:${seconds},${milisecs}`;
+  }, 1);
 }
 
 const playerName = document.querySelector(".playerName");
@@ -144,6 +148,8 @@ createCards();
 
 let firstCard = "";
 let secondCard = "";
+let gameFinished = false;
+
 clickFlipCard();
 
 const initialDateTimer = new Date();
